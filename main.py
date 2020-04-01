@@ -1,8 +1,11 @@
 import json
 import sys
-
+from difflib import SequenceMatcher , get_close_matches
 
 data = json.load(open("data.json"))
+
+def similar(word):
+    return get_close_matches(word,data.keys())
 
 def meaning (word):
 
@@ -29,8 +32,8 @@ def meaning (word):
     
     except KeyError:
 
-        print("\n\n\033[31m the word you entered does not exist in this dictonary sorry ಥ_ಥ")
-
+        print("\n\n\033[31m the word you entered does not exist in this dictonary sorry '‧º·(˚ ˃̣̣̥⌓˂̣̣̥ )‧º·'")
+ 
         return("\033[31m please try angain")        
 
 
