@@ -1,14 +1,20 @@
 import json
 import sys
 from difflib import SequenceMatcher , get_close_matches
-
+from animation import *
 data = json.load(open("data.json"))
 
 def similar(word):
-    return get_close_matches(word,data.keys())
-
+    matches =  get_close_matches(word,data.keys(),n = 3)
+    lol = ""
+    for i in matches:
+        lol= lol+i+","
+    return lol
+    
+    
+    
 def meaning (word):
-
+    
 
     try:
 
@@ -33,9 +39,16 @@ def meaning (word):
     except KeyError:
 
         print("\n\n\033[31m the word you entered does not exist in this dictonary sorry '‧º·(˚ ˃̣̣̥⌓˂̣̣̥ )‧º·'")
- 
-        return("\033[31m please try angain")        
-
+        
+        
+        load_animation()
+        
+        
+        print("did you mean one of these words\n\n \033[35m",similar(word))
+        print("\n  \033[31m please try thease words or another one")        
+        
+        
+        return(" ")
 
 
 print("this is a dictonary program")
@@ -56,6 +69,16 @@ while flag != False:
 
 
     word =  input("\033[37m :-  ")
+  
+      
+      
+        # for windows OS 
+    if os.name =="nt": os.system("cls") 
+          
+    # for linux / Mac OS 
+    else: os.system("clear") 
+
+
 
     if word == "no" or  word == "No":
 
