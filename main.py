@@ -10,6 +10,8 @@ def meaning (word):
         print("the word you entered does not exist in this dictonary sorry ಥ_ಥ")
         return("please try anain")        
 
+print("this is a dictonary program")
+
 word = input("enter the word :-  ")
 
 
@@ -17,10 +19,8 @@ flag = True
 
 while flag != False:
 
-    try:
-        print(meaning(word))
-    except print(""):
-        pass
+    
+    print(meaning(word.lower()),"\n\n")
 
 
    
